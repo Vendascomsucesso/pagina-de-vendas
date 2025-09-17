@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Página de Venda — WhatsApp CTA</title>
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#10b981;--muted:#94a3b8;--glass: rgba(255,255,255,0.03)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial; background:linear-gradient(180deg,#031025 0%, var(--bg) 100%); color:#e6eef6;-webkit-font-smoothing:antialiased}
+    .container{max-width:980px;margin:48px auto;padding:24px}
+    .card{background:var(--card);border-radius:14px;padding:28px;box-shadow:0 6px 30px rgba(2,6,23,0.6)}
+    header{display:flex;align-items:center;gap:16px}
+    .logo{width:64px;height:64px;border-radius:10px;background:linear-gradient(135deg,#0ea5a4,#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700;color:white}
+    h1{margin:0;font-size:28px}
+    p.lead{color:var(--muted);margin-top:10px}
+
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:20px;margin-top:26px}
+    .features{display:grid;gap:12px}
+    .feature{background:var(--glass);padding:14px;border-radius:10px}
+
+    .sidebar{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:10px}
+    .price{font-size:28px;font-weight:700}
+    .cta{display:inline-block;margin-top:14px;padding:12px 16px;border-radius:10px;text-decoration:none;font-weight:700;background:linear-gradient(90deg,var(--accent),#059669);color:white}
+    .small{font-size:13px;color:var(--muted);margin-top:8px}
+
+    footer{margin-top:20px;color:var(--muted);font-size:13px}
+
+    /* mobile */
+    @media(max-width:880px){
+      .grid{grid-template-columns:1fr;}
+      .sidebar{order:2}
+    }
+
+    /* helper comment: Edite as variáveis abaixo para personalizar o número e a mensagem do WhatsApp */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <header>
+        <div class="logo">FV</div>
+        <div>
+          <h1 id="page-title">Oferta Especial — Curso F</h1>
+          <p class="lead" id="subtitle">Vagas limitadas. Aprenda de forma prática e comece hoje.</p>
+        </div>
+      </header>
+
+      <div class="grid">
+        <div>
+          <div class="features">
+            <div class="feature">
+              <strong>O que você recebe</strong>
+              <ul>
+                <li>Aulas passo a passo</li>
+                <li>Material bônus em PDF</li>
+                <li>Suporte via WhatsApp</li>
+              </ul>
+            </div>
+
+            <div class="feature">
+              <strong>Garantia</strong>
+              <p class="small">7 dias de garantia — se não gostar, devolvemos seu dinheiro.</p>
+            </div>
+
+            <div class="feature">
+              <strong>Depoimentos</strong>
+              <p class="small">"O curso mudou minha rotina" — Ana P.</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="sidebar">
+          <div>
+            <div class="price" id="price">R$ 197</div>
+            <div class="small">Pagamento único — Acesso imediato</div>
+
+            <!-- CTA: o botão abaixo abre o WhatsApp com mensagem pré-preenchida. -->
+            <!-- PARA EDITAR: altere as variáveis phoneNumber e preMessage no script no final do documento -->
+            <a id="whatsapp-cta" class="cta" href="#" rel="noopener" target="_blank">Quero essa oferta — WhatsApp</a>
+
+            <div class="small">ou mande "Eu quero F" no WhatsApp</div>
+          </div>
+        </aside>
+      </div>
+
+      <footer>
+        <div>Precisa editar o texto ou imagens? Abra este arquivo em qualquer editor (VS Code, Notepad++) e altere os conteúdos entre &lt;!-- --> comments)</div>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // ---------- EDITE AQUI ----------
+    // Número no formato internacional sem sinais: exemplo para Brasil: 55 + DDD + número
+    const phoneNumber = '5587981733029'; // substitua pelo seu telefone
+    // Mensagem pré-preenchida (sem acentuação obrigatória), espaços substituídos por %20
+    const preMessage = 'Eu%20quero%20F'; // substitua pela mensagem desejada
+    // -------------------------------
+
+    // Monta o link do WhatsApp (wa.me)
+    const waLink = `https://wa.me/${phoneNumber}?text=${preMessage}`;
+    const cta = document.getElementById('whatsapp-cta');
+    cta.href = waLink;
+
+    // Se quiser alterar dinamicamente o título, preço e subtítulo sem editar o HTML, descomente e edite abaixo:
+    // document.getElementById('page-title').textContent = 'Seu Novo Produto';
+    // document.getElementById('price').textContent = 'R$ 97';
+    // document.getElementById('subtitle').textContent = 'Promoção por tempo limitado';
+  </script>
+</body>
+</html>
